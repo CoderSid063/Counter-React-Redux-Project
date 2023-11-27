@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { counterActions } from "../store";
 import { useDispatch } from "react-redux";
 
 const Controls = () => {
@@ -6,25 +7,21 @@ const Controls = () => {
   const inputElement = useRef();
 
   const handleIncrement = () => {
-    dispatch({ type: "INCREMENT" });
+    dispatch(counterActions.increment());
   };
 
   const handleDecremet = () => {
-    dispatch({ type: "DECREMENT" });
+    dispatch(counterActions.decrement());
   };
 
   const handleAdd = () => {
-    dispatch({ 
-      type: "ADD", 
-      payload: { num: inputElement.current.value } });
-      inputElement.current.value = "";
+    dispatch(counterActions.add({ num: inputElement.current.value }));
+    inputElement.current.value = "";
   };
 
   const handleSubtract = () => {
-    dispatch({
-      type: "SUBTRACT",
-      payload: { num: inputElement.current.value } });
-      inputElement.current.value = "";
+    dispatch(counterActions.subtract({ num: inputElement.current.value }));
+    inputElement.current.value = "";
   };
   return (
     <>

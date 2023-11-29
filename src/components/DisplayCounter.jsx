@@ -4,7 +4,7 @@ const DisplayCounter = () => {
   // const counterObj = useSelector((store) =>  store.counter);
   // const counter = counterObj.counterVal ;
 
-  // destructering & store."slice name"
+  // destructering & store."slice.name"
   const { counterVal } = useSelector((store) => store.counter);
 
   return <p className="lead mb-4">counter Value : {counterVal}</p>;
